@@ -1,0 +1,49 @@
+/* Estilos para el navbar */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+}
+
+
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+/* Logo */
+
+.logo{
+    width: auto;
+    height: 2rem;
+}
+
+/* Menu */
+.menu-element {
+    transition: filter 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-element:hover {
+    filter: drop-shadow(0 4px 8px var(--primary));
+}
+
+/* Icons */
+.icon{
+    height: 1.5rem;
+    width: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
