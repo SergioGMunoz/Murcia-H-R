@@ -19,6 +19,22 @@ p{
   font-weight: normal;
 }
 
+main{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 2rem;
+}
+
+/* Loader */
+.loader-container{
+  margin-top: 10rem;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+}
+
 /* List of elements*/
 
 .list{
