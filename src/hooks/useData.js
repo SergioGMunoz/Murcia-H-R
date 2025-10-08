@@ -1,16 +1,10 @@
 import {getData} from '../api/dataApi.js';
-
-export const fetchData = (type) => {
-   
-        
-getData(type)
-    .then((res) => {
-        console.log(res);
-    })
-    .catch((err) => {
-        console.log('ERROR: ', err)
-    })
-    .finally (() =>{
-        console.log('FINALLY RUNS')
-    })
-}
+       
+export const fetchData = async (type) => {
+  try {
+    const data = await getData(type);
+    return { data, error: null };
+  } catch (error) {
+    return { data: null, error };
+  }
+};
