@@ -3,10 +3,15 @@ import Pagination from "../components/List/Pagination";
 import { fetchData } from "../hooks/useData";
 import List from "../components/List/List";
 import Loader from "../components/ui/Loader";
+import Error from "../components/ui/Error";
 
 const HotelesListing = () => {
   // Fetch Data
-  const [hotels, setHotels] = useState([]);
+  const [hotels, setHotels] = useState(null);
+
+  const handleError = () => {
+    return <Error onTryAgain={() => window.location.reload()} />;
+  };
 
   useEffect(() => {
     fetchData("hotels").then((response) => {
@@ -14,6 +19,7 @@ const HotelesListing = () => {
         setHotels(response.data);
       } else {
         console.error("Error fetching hotels:", response.error);
+        handleError();
       }
     });
   }, []);
@@ -29,7 +35,9 @@ const HotelesListing = () => {
 
   return (
     <>
-      {hotels && hotels.length > 0 ? (
+      {!hotels ? (
+        <Loader />
+      ) : (
         <>
           <List elements={hotels} />
           <Pagination
@@ -39,8 +47,6 @@ const HotelesListing = () => {
             onNext={handleOnNext}
           />
         </>
-      ) : (
-        <Loader />
       )}
     </>
   );
