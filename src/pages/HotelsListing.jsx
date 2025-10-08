@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Pagination from "../components/List/Pagination";
 import { fetchData } from "../hooks/useData";
 import List from "../components/List/List";
+import Loader from "../components/ui/Loader";
 
 const HotelesListing = () => {
   // Fetch Data
@@ -12,7 +13,7 @@ const HotelesListing = () => {
       if (response.data) {
         setHotels(response.data);
       } else {
-        console.error('Error fetching hotels:', response.error);
+        console.error("Error fetching hotels:", response.error);
       }
     });
   }, []);
@@ -27,20 +28,21 @@ const HotelesListing = () => {
   };
 
   return (
-    <main>
+    <>
       {hotels && hotels.length > 0 ? (
-        <List elements={hotels} />
+        <>
+          <List elements={hotels} />
+          <Pagination
+            currentPage={1}
+            totalPages={10}
+            onPrevious={handleOnPrevious}
+            onNext={handleOnNext}
+          />
+        </>
       ) : (
-        <p>Cargando...</p>
+        <Loader />
       )}
-
-      <Pagination
-        currentPage={1}
-        totalPages={10}
-        onPrevious={handleOnPrevious}
-        onNext={handleOnNext}
-      />
-    </main>
+    </>
   );
 };
 

@@ -11,7 +11,9 @@ function App() {
     <>
       {console.log("HOTELS LENGTH")}
       <NavBar />
-      <HotelesListing />
+      <main>
+        <HotelesListing />
+      </main>
     </>
   );
 }
