@@ -1,9 +1,9 @@
-import {getData as getDataApi} from '../api/dataApi.js';
+import {getData} from '../api/dataApi.js';
 
-export const getData = (type) => {
+export const fetchData = (type) => {
    
         
-getDataApi(type)
+getData(type)
     .then((res) => {
         console.log(res);
     })

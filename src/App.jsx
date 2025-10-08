@@ -2,10 +2,10 @@ import './App.css'
 import List from './modules/List.jsx'
 import { NavBar } from './modules/navbar/navbar.jsx'
 import Pagination from './modules/Pagination.jsx'
-import {getData} from './hooks/useData.js';
+import {fetchData} from './hooks/useData.js';
 
 function App() {
-  getData('hotel');
+  fetchData('hotel');
   return (
     <>
     {console.log('HOTELS LENGTH')}
