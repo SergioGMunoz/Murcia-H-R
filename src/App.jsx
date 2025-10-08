@@ -1,7 +1,7 @@
 import './App.css'
-import List from './modules/List.jsx'
-import { NavBar } from './modules/navbar/navbar.jsx'
-import Pagination from './modules/Pagination.jsx'
+import List from './components/List/List.jsx'
+import { NavBar } from './components/navbar/navbar.jsx'
+import Pagination from './components/List/Pagination.jsx'
 import {fetchData} from './hooks/useData.js';
 
 function App() {
