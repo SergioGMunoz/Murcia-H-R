@@ -1,4 +1,4 @@
-import ListElement from "./ListElement";
+import ListItem from "./ListItem";
 
 const List = ({ elements }) => {
   return (
@@ -6,7 +6,7 @@ const List = ({ elements }) => {
       {console.log(elements)}
       {elements.map((element) => {
         return (
-          <ListElement
+          <ListItem
             key={element["Nombre"] || "-"}
             url={element["URL Real"] || element["URL Corta"] || ""}
             photo={element["Foto 1"] || "../assets/img/not-img.png"}

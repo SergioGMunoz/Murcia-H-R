@@ -1,4 +1,4 @@
-const ListElement = ({ url, photo, name, address, phone }) => {
+const ListItem = ({ url, photo, name, address, phone }) => {
     const handleOnClick = () =>{
         console.log("Visiting...", url)
         window.open(`https://${url}`, '_blank');
@@ -19,4 +19,4 @@ const ListElement = ({ url, photo, name, address, phone }) => {
   );
 };
 
-export default ListElement;
+export default ListItem;
