@@ -1,22 +1,22 @@
-import heartIcon from '../../assets/icons/akar-icons_heart.png';
-import cartIcon from '../../assets/icons/ant-design_shopping-cart-outlined.png';
-import accountIcon from '../../assets/icons/mdi_account-alert-outline.png';
-import vectorIcon from '../../assets/icons/Vector.png';
+import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import SearchIcon from '@mui/icons-material/Search';
 
 export const Icons = () => {
     return (
         <div className="flex-container">
             <div className="icon">
-                <img src={heartIcon} alt="Heart" />
+                <FavoriteOutlinedIcon className="mui-icon" />
             </div>
             <div className="icon">
-                <img src={cartIcon} alt="Shopping Cart" />
+                <ShoppingCartOutlinedIcon className="mui-icon" />
             </div>
             <div className="icon">
-                <img src={accountIcon} alt="Account" />
+                <AccountCircleOutlinedIcon className="mui-icon" />
             </div>
             <div className="icon">
-                <img src={vectorIcon} alt="Vector" />
+                <SearchIcon className="mui-icon" />
             </div>
         </div>
     );
