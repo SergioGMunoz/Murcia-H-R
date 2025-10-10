@@ -138,7 +138,6 @@ main {
   display: flex;
   flex-direction: row;
   margin: 0 6rem;
-  margin-top: 2rem;
   justify-content: space-between;
   align-items: center;
   height: 3rem;
