@@ -3,7 +3,7 @@ import { ClipLoader
 
 function Loader() {
   return (
-        <div class="loader-container">
+        <div className="loader-container">
         <ClipLoader
             color="#B88E2F"
             loading={true}
