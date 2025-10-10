@@ -4,6 +4,7 @@ import { fetchData } from "../hooks/useData";
 import List from "../components/List/List";
 import Loader from "../components/ui/Loader";
 import Error from "../components/ui/Error";
+import Promo from "../components/Promo/Promo";
 
 const HotelesListing = () => {
   // Fetch Data
@@ -39,6 +40,7 @@ const HotelesListing = () => {
         <Loader />
       ) : (
         <>
+          <Promo item={hotels[Math.floor(Math.random() * hotels.length)]}/>
           <List elements={hotels} />
           <Pagination
             currentPage={1}
