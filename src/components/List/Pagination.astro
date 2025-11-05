@@ -1,0 +1,59 @@
+---
+interface Props {
+  currentPage: number;
+  totalPages: number;
+}
+
+const { currentPage, totalPages } = Astro.props;
+---
+
+<div class="pagination-container">
+  {currentPage > 1 && (
+    <button class="inactive">
+      Anterior
+    </button>
+  )}
+
+  <button class="active">{currentPage}</button>
+
+  {currentPage < totalPages && (
+    <button class="inactive">
+      {currentPage + 1}
+    </button>
+  )}
+
+  {currentPage < totalPages && (
+    <button class="inactive">
+      Siguiente
+    </button>
+  )}
+</div>
+
+<style>
+.pagination-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-container button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--grey);
+  background-color: white;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.pagination-container button.active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.pagination-container button.inactive:hover {
+  background-color: var(--secondary);
+}
+</style>

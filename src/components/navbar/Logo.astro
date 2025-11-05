@@ -1,0 +1,23 @@
+---
+import logoImg from '../../assets/img/Murcia-H-RLogo.png';
+---
+
+<div class="flex-container">
+    <img class="logo" src={logoImg.src} alt="Murcia-H-RLogo.png" />
+    <h2>Murcia H&R</h2>
+</div>
+
+<style>
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: auto;
+  height: 2rem;
+}
+</style>

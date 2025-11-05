@@ -1,0 +1,20 @@
+---
+import Logo from './Logo.astro';
+import Icons from './Icons.astro';
+---
+
+<nav class="navbar">
+    <Logo />
+    <Icons />
+</nav>
+
+<style>
+.navbar {
+  display: flex;
+  flex-direction: row;
+  margin: 0 6rem;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+}
+</style>

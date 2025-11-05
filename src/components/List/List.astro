@@ -1,0 +1,29 @@
+---
+import ListItem from "./ListItem.astro";
+
+interface Props {
+  elements: any[];
+}
+
+const { elements } = Astro.props;
+---
+
+<section class="list">
+  {elements.map((element) => (
+    <ListItem
+      url={element["URL Real"] || element["URL Corta"] || ""}
+      photo={element["Foto 1"] || ""}
+      name={element["Nombre"] || "-"}
+      address={element["Dirección"] || "-"}
+      phone={element["Teléfono"] || "-"}
+    />
+  ))}
+</section>
+
+<style>
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+</style>

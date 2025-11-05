@@ -1,0 +1,27 @@
+---
+interface Props {
+  msg?: string;
+}
+
+const { msg = '❌ Error inesperado' } = Astro.props;
+---
+
+<div class="error-container">
+    <h2>{msg}</h2>
+    <p>Por favor, recarga la página</p>
+</div>
+
+<style>
+.error-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 5rem;
+  padding: 3rem;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+</style>

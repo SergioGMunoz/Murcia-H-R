@@ -1,11 +1,39 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/navbar/NavBar.astro';
+import List from '../components/List/List.astro';
+import Pagination from '../components/List/Pagination.astro';
+import Promo from '../components/Promo/Promo.astro';
+import Loader from '../components/ui/Loader.astro';
+import Error from '../components/ui/Error.astro';
+import { fetchData } from '../lib/api/dataApi.js';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+let hotels = null;
+let error = null;
+
+const response = await fetchData('hotels');
+if (response.data) {
+	hotels = response.data;
+} else {
+	error = response.error;
+}
+
+const randomHotel = hotels ? hotels[Math.floor(Math.random() * hotels.length)] : null;
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Murcia H&R - Hoteles y Restaurantes">
+	<NavBar />
+	<main>
+		{error ? (
+			<Error msg="Error al cargar los hoteles" />
+		) : !hotels ? (
+			<Loader />
+		) : (
+			<>
+				<Promo item={randomHotel} />
+				<List elements={hotels} />
+				<Pagination currentPage={1} totalPages={10} />
+			</>
+		)}
+	</main>
 </Layout>

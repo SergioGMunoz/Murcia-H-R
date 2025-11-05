@@ -1,0 +1,38 @@
+---
+interface Props {
+  text: string;
+  disabled?: boolean;
+}
+
+const { text, disabled = false } = Astro.props;
+---
+
+<button disabled={disabled} class="primary-button">
+  {text}
+</button>
+
+<style>
+.primary-button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+
+.primary-button:hover {
+  background-color: #a67c2a;
+  transform: translateY(-4px);
+}
+
+.primary-button:disabled {
+  background-color: var(--grey);
+  transform: none;
+  box-shadow: none;
+  cursor: default;
+}
+</style>

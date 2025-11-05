@@ -1,0 +1,91 @@
+---
+import notImg from "../../assets/img/not-img.png";
+
+interface Props {
+  url: string;
+  photo: string;
+  name: string;
+  address: string;
+  phone: string;
+}
+
+const { url, photo, name, address, phone } = Astro.props;
+---
+
+<div class="list-element-container" data-url={url}>
+  <div class="img-container">
+    <img
+      src={photo || notImg.src}
+      alt={name}
+      loading="lazy"
+    />
+  </div>
+  <div class="info-container">
+    <h6 class="name">{name}</h6>
+    <p class="address">{address}</p>
+    <p class="phone">{phone}</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.list-element-container').forEach(element => {
+    element.addEventListener('click', () => {
+      const url = element.getAttribute('data-url');
+      if (url) {
+        window.open(`https://${url}`, '_blank');
+      }
+    });
+  });
+
+  document.querySelectorAll('.list-element-container img').forEach(img => {
+    img.addEventListener('error', (e) => {
+      const target = e.target as HTMLImageElement;
+      if (target && !target.src.includes('not-img.png')) {
+        target.src = '/src/assets/img/not-img.png';
+      }
+    });
+  });
+</script>
+
+<style>
+.list-element-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.5s ease;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.list-element-container:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+}
+
+.img-container {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+  background-color: var(--secondary);
+}
+</style>

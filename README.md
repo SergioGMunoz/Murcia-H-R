@@ -1,6 +1,6 @@
 # 🏨 Murcia H&R - Hoteles y Restaurantes
 
-**Murcia H&R** es una aplicación web moderna desarrollada en React que permite explorar y descubrir hoteles y restaurantes de la Región de Murcia. La aplicación consume datos de la API oficial de turismo de Murcia para ofrecer información actualizada y completa sobre establecimientos hoteleros y gastronómicos.
+**Murcia H&R** es una aplicación web moderna desarrollada en Astro que permite explorar y descubrir hoteles y restaurantes de la Región de Murcia. La aplicación consume datos de la API oficial de turismo de Murcia para ofrecer información actualizada y completa sobre establecimientos hoteleros y gastronómicos.
 
 <div align="center">
 
@@ -10,10 +10,9 @@
 
 *Descubre los mejores hoteles y restaurantes de la Región de Murcia*
 
+[![Astro](https://img.shields.io/badge/Astro-5-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Material-UI](https://img.shields.io/badge/Material--UI-5-0081CB?style=for-the-badge&logo=mui&logoColor=white)](https://mui.com/)
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/)
 
 </div>
@@ -48,13 +47,15 @@
 
 ## 🛠️ Tecnologías Utilizadas
 
-### **Herramientas de Desarrollo**
-- **ESLint** - Linting de código JavaScript
-- **React Hooks** - useState, useEffect, useCallback
-- **Fetch API** - Consumo de APIs REST
+### **Framework y Herramientas**
+- **Astro** - Framework principal con renderizado estático
+- **React** - Componentes interactivos (Islands Architecture)
+- **TypeScript** - Tipado estático
+- **CSS Modules** - Estilos encapsulados por componente
 
 ### **APIs y Datos**
 - **API Turismo Murcia** - Datos oficiales de hoteles y restaurantes
+- **Fetch API** - Consumo de APIs REST
 - **Validación de Imágenes** - Sistema custom de verificación de URLs
 
 
@@ -62,36 +63,40 @@
 
 ```
 src/
-├── components/          # Componentes reutilizables
-│   ├── List/           # Componentes de listado
-│   ├── navbar/         # Barra de navegación
-│   ├── Promo/          # Carousel promocional
-│   └── ui/             # Componentes UI generales
-├── hooks/              # Custom hooks
-├── pages/              # Páginas principales
-├── utils/              # Utilidades y helpers
-└── assets/             # Recursos estáticos
+├── assets/
+│   └── img/            # Imágenes y recursos estáticos
+├── components/
+│   ├── List/           # Componentes de listado (Astro)
+│   ├── navbar/         # Barra de navegación (Astro)
+│   ├── Promo/          # Carousel promocional (React Island)
+│   └── ui/             # Componentes UI generales (Astro)
+├── layouts/            # Layouts base
+├── lib/
+│   └── api/            # Lógica de API y fetching
+└── pages/              # Páginas (enrutamiento basado en archivos)
 ```
 
 ## 🚀 Como probar
 
 ### **Requisitos**
 ```bash
-Node.js >= 16.0.0
+Node.js >= 18.0.0
 npm >= 8.0.0
 ```
 
 ### **Instalación**
 ```bash
-# Clonar el repositorio
-git clone https://github.com/tu-usuario/murcia-h-r.git
-
-# Navegar al directorio
-cd murcia-h-r
-
-# Instalar dependencias
-npm install
-
-# Iniciar servidor de desarrollo
-npm run dev
+npm install          # Instalar dependencias
+npm run dev          # Iniciar servidor de desarrollo (localhost:4321)
+npm run build        # Construir para producción
+npm run preview      # Vista previa de la build
 ```
+
+## 📝 Migración React → Astro
+
+Este proyecto fue migrado exitosamente de React a Astro:
+- ✅ Todos los componentes convertidos a sintaxis Astro
+- ✅ Estilos CSS integrados en cada componente
+- ✅ Carousel implementado como React Island
+- ✅ Variables en inglés y código sin comentarios
+- ✅ Funcionalidades originales mantenidas
