@@ -3,7 +3,7 @@ import notImg from "../../assets/img/not-img.png";
 const ListItem = ({ url, photo, name, address, phone }) => {
   const handleOnClick = () => {
     console.log("Visiting...", url);
-    window.open(`https://${url}`, "_blank");
+    window.open(`${url}`, "_blank");
   };
   return (
     <div onClick={handleOnClick} className="list-element-container">
