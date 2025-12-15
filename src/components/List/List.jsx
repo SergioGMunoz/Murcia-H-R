@@ -7,7 +7,7 @@ const List = ({ elements }) => {
         return (
           <ListItem
             key={element["Nombre"] + element["URL Real"]}
-            url={element["URL Real"] || element["URL Corta"] || ""}
+            url={element["URL Real"] || element["URL Corta"] || "not-found"}
             photo={element["Foto 1"] || "../assets/img/not-img.png"}
             name={element["Nombre"] || "-"}
             address={element["Dirección"] || "-"}
