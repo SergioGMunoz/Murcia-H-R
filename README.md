@@ -4,8 +4,6 @@
 
 <div align="center">
 
-> **⚠️ PROYECTO EN CONSTRUCCIÓN - NO ESTÁ LISTO TODAVÍA ⚠️**
-
 ![Desktop](./img_readme/MurciaH&R.png)
 
 *Descubre los mejores hoteles y restaurantes de la Región de Murcia*
