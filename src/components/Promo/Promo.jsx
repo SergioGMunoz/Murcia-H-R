@@ -29,7 +29,7 @@ const Promo = ({ item }) => {
     console.log("ITEM ARRAY", photos);
   return (
     <section>
-      <Carousel name={item['Nombre'] || ''} url={item["URL Real"] || item["URL Corta"] || ""} photos={photos} />
+      <Carousel name={item['Nombre'] || ''} url={item["URL Real"] || item["URL Corta"] || ""} photos={photos} hotel={item} />
     </section>
   );
 };

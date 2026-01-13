@@ -17,13 +17,27 @@
 </div>
 
 
+TODO: 
+Cosas por hacer en el documento 
+Añadir que los estilos son puto CSS 
+actualizar tecnologias usadas y añadir figma para el diseño y git para el control de versiones
 
 ---
 
 ## ✨ Funcionalidades Actuales
 
 ### 🎯 **Implementadas**
+COSAS A INCLUIR:
+Loader cargando 
+Consulta datos api
+Carrousel moderno
+Paginación
+react router
+responsive 
 -  **Listado de Hoteles**: Visualización completa de hoteles disponibles
+-  **Detalle de Hotel**: Página individual con información completa y fotos
+-  **React Router**: Navegación entre páginas con rutas dinámicas
+-  **Paginación**: Sistema de paginación con 15 hoteles por página
 -  **Carousel Promocional**: Showcase interactivo con imágenes y reservas
 -  **Validación de Imágenes**: Sistema inteligente de validación de URLs de fotos
 -  **Diseño Responsive**: Optimizado para móviles, tablets y desktop
@@ -35,14 +49,15 @@
 ## 🚧 Cambios Pendientes
 
 ### 🔄 **En Desarrollo**
-- **Listado de Restaurantes**
 - **Sistema de Filtros**
+- **Búsqueda de Hoteles**
 - **Tiempo Meteorológico**
 - **Integración de Mapas**
-- **Pasarela de Pago (Stripe)**
 
 
 ### 🎯 **Futuras Mejoras**
+- **Listado de Restaurantes** - Integración con API de restaurantes de Murcia
+- **Detalle de Restaurantes** - Páginas individuales para restaurantes
 - **Sistema de Reservas en Línea**
 - **Gestión y Historial de Reservas**
 - **Valoraciones y Comentarios**
@@ -51,6 +66,7 @@
 - **Notificaciones y Alertas**
 - **Búsqueda por Cercanía**
 - **Filtros Avanzados**
+- **Pasarela de Pago (Stripe)**
 - **Integración Zaragoza Capital**
 - **Cifrado de Datos**
 - **Acceso Multiplataforma**
