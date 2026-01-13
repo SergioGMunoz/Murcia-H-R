@@ -2,26 +2,29 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import Button from "../ui/Button.jsx";
 import { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { createHotelId } from "../../utils/hotelUtils";
 
-const Carousel = ({ name, url, photos }) => {
+const Carousel = ({ name, url, photos, hotel }) => {
   const [index, setIndex] = useState(0);
+  const navigate = useNavigate();
 
   const handleNext = useCallback(() => {
     if (!photos || photos.length === 0) return;
     setIndex((prevIndex) => {
       return (prevIndex + 1) % photos.length;
     });
-    console.log("NEXT IMG", photos[index]);
-  }, [photos, index]);
+  }, [photos]);
 
   const handleBefore = () => {
     if (!photos || photos.length === 0) return;
     setIndex((prevIndex) => (prevIndex - 1 + photos.length) % photos.length);
   };
 
+  // Navigate to hotel  page
   const handleOnClick = () => {
-    console.log("Visiting...", url);
-    window.open(`https://${url}`, "_blank");
+    const hotelId = createHotelId(name);
+    navigate(`/hotel/${hotelId}`, { state: { hotel } });
   };
 
   // Autoplay
@@ -30,7 +33,7 @@ const Carousel = ({ name, url, photos }) => {
 
     const interval = setInterval(() => {
       handleNext();
-    }, 4000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [photos, handleNext]);
@@ -43,7 +46,7 @@ const Carousel = ({ name, url, photos }) => {
         alt="img"
         onError={handleNext}
       />
-      
+
       {photos.length > 1 && (
         <NavigateBeforeIcon
           onClick={handleBefore}

@@ -1,10 +1,17 @@
 import notImg from "../../assets/img/not-img.png";
+import { useNavigate } from "react-router-dom";
+import { createHotelId } from "../../utils/hotelUtils";
 
-const ListItem = ({ url, photo, name, address, phone }) => {
+const ListItem = ({ photo, name, address, phone, hotel }) => {
+  const navigate = useNavigate();
+
   const handleOnClick = () => {
-    console.log("Visiting...", url);
-    window.open(`${url}`, "_blank");
+    // Create hotel ID -> Ej: /casa-paco
+    const hotelId = createHotelId(name);
+    console.log("Navigating to hotel:", hotelId);
+    navigate(`/hotel/${hotelId}`, { state: { hotel } });
   };
+
   return (
     <div onClick={handleOnClick} className="list-element-container">
       <div className="img-container">
@@ -12,8 +19,8 @@ const ListItem = ({ url, photo, name, address, phone }) => {
           src={photo}
           alt={name}
           onError={(e) => {
-            // Evitar bucle infinito verificando si ya es la imagen de fallback
             if (e.currentTarget.src !== notImg) {
+              // Img not found
               e.currentTarget.src = notImg;
             }
           }}

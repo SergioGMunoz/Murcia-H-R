@@ -6,16 +6,20 @@ import Loader from "../components/ui/Loader";
 import Error from "../components/ui/Error";
 import Promo from "../components/Promo/Promo";
 
-const HotelesListing = () => {
-  // Fetch Data
-  const [hotels, setHotels] = useState(null);
+const itemsPerPage = 15;
 
+const HotelesListing = () => {
+  const [hotels, setHotels] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Error
   const handleError = () => {
     return <Error onTryAgain={() => window.location.reload()} />;
   };
 
+  // Error fetching Hotels -> Render error page
   useEffect(() => {
-    fetchData("hotels").then((response) => {
+    fetchData().then((response) => {
       if (response.data) {
         setHotels(response.data);
       } else {
@@ -25,13 +29,33 @@ const HotelesListing = () => {
     });
   }, []);
 
-  // Pagination logic
+  // calc hotels to display
+  const getCurrentPageHotels = () => {
+    if (!hotels) return [];
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return hotels.slice(startIndex, endIndex);
+  };
+
+  // total pages
+  const totalPages = hotels ? Math.ceil(hotels.length / itemsPerPage) : 0;
+
+  // Pagination
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleOnPrevious = () => {
-    console.log("Going to previous page");
+    if (currentPage > 1) {
+      handlePageChange(currentPage - 1);
+    }
   };
 
   const handleOnNext = () => {
-    console.log("Going to next page");
+    if (currentPage < totalPages) {
+      handlePageChange(currentPage + 1);
+    }
   };
 
   return (
@@ -41,12 +65,13 @@ const HotelesListing = () => {
       ) : (
         <>
           <Promo item={hotels[Math.floor(Math.random() * hotels.length)]}/>
-          <List elements={hotels} />
+          <List elements={getCurrentPageHotels()} />
           <Pagination
-            currentPage={1}
-            totalPages={10}
+            currentPage={currentPage}
+            totalPages={totalPages}
             onPrevious={handleOnPrevious}
             onNext={handleOnNext}
+            onPageChange={handlePageChange}
           />
         </>
       )}

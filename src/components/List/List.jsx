@@ -1,5 +1,8 @@
 import ListItem from "./ListItem";
 
+// List of hotels component
+// Iterates the item list an reder it 
+
 const List = ({ elements }) => {
   return (
     <section className="list">
@@ -7,11 +10,11 @@ const List = ({ elements }) => {
         return (
           <ListItem
             key={element["Nombre"] + element["URL Real"]}
-            url={element["URL Real"] || element["URL Corta"] || ""}
             photo={element["Foto 1"] || "../assets/img/not-img.png"}
             name={element["Nombre"] || "-"}
             address={element["Dirección"] || "-"}
             phone={element["Teléfono"] || "-"}
+            hotel={element}
           />
         );
       })}
