@@ -35,15 +35,25 @@
 ## 🚧 Cambios Pendientes
 
 ### 🔄 **En Desarrollo**
-- [ ]  **Listado de Restaurantes**: Integración completa de establecimientos gastronómicos
-- [ ]  **Sistema de Filtros**: Filtrado por ubicación, tipo, precio, valoración
+- **Listado de Restaurantes**
+- **Sistema de Filtros**
+- **Tiempo Meteorológico**
+- **Integración de Mapas**
+- **Pasarela de Pago (Stripe)**
 
 
 ### 🎯 **Futuras Mejoras**
-- [ ]  **Integración de Mapas**: Visualización geográfica de establecimientos
-- [ ]  **Sistema de Valoraciones**: Reseñas y puntuaciones de usuarios
-- [ ]  **Favoritos**: Guardar establecimientos preferidos
-- [ ]  **Enlaces de Reserva**: Integración con sistemas de booking
+- **Sistema de Reservas en Línea**
+- **Gestión y Historial de Reservas**
+- **Valoraciones y Comentarios**
+- **Sistema de Favoritos**
+- **Perfil de Usuario**
+- **Notificaciones y Alertas**
+- **Búsqueda por Cercanía**
+- **Filtros Avanzados**
+- **Integración Zaragoza Capital**
+- **Cifrado de Datos**
+- **Acceso Multiplataforma**
 
 ## 🛠️ Tecnologías Utilizadas
 
