@@ -1,14 +1,18 @@
-import { Map } from "@vis.gl/react-google-maps";
-import "./HotelLocation.css";
+import { Map, AdvancedMarker, Pin } from "@vis.gl/react-google-maps";
 
-const HotelLocation = () => {
+const HotelLocation = ({ coords }) => {
+  console.log("Coords: ", coords);
   return (
     <div className="hotel-location-map">
-      <Map
-        defaultZoom={15}
-        defaultCenter={{ lat: 37.9838, lng: -1.1288 }}
-        mapId="hotel-location-map"
-      />
+      <Map defaultZoom={18} defaultCenter={coords} mapId="hotel">
+        <AdvancedMarker position={coords}>
+          <Pin
+            background={"#b88e2f"}
+            borderColor={"#b88e2f"}
+            glyphColor={"#ffffff"}
+          />
+        </AdvancedMarker>
+      </Map>
     </div>
   );
 };
