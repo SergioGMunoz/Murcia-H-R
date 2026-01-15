@@ -3,11 +3,15 @@ import notImg from "../assets/img/not-img.png";
 import Button from "../components/ui/Button";
 import Error from "../components/ui/Error";
 import InfoItem from "../components/ui/InfoItem";
+import HotelLocation from "../components/Map/HotelLocation";
+import { parseHotelCoordinates } from "../utils/coordinatesUtils";
 
 const HotelDetail = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const hotel = state?.hotel;
+
+  console.log("HOTEL A MOSTRAR", hotel);
 
   // Render error 404 if hotel not found in state
   if (!hotel) {
@@ -94,9 +98,27 @@ const HotelDetail = () => {
         <div className="info-section">
           <h2>Información del Hotel</h2>
 
-          {fields.map((key) => (
-            <InfoItem key={key} label={key} value={hotel[key]} />
-          ))}
+          {fields.map((key) => {
+            if (key === "Dirección") {
+              const coords = parseHotelCoordinates(
+                hotel["Latitud"],
+                hotel["Longitud"]
+              );
+              return (
+                <div key={key}>
+                  <InfoItem label={key} value={hotel[key]} />
+                  {/* If have coordinates */}
+                  {coords && (
+                    <div className="hotel-location-container">
+                      <h3>Ubicación</h3>
+                      <HotelLocation coords={coords} />
+                    </div>
+                  )}
+                </div>
+              );
+            }
+            return <InfoItem key={key} label={key} value={hotel[key]} />;
+          })}
         </div>
 
         <div className="hotel-actions">
