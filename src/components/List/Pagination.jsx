@@ -1,29 +1,47 @@
-const Pagination = ({ currentPage, totalPages, onPrevious, onNext }) => {
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
+const Pagination = ({
+  currentPage,
+  totalPages,
+  onPrevious,
+  onNext,
+  onPageChange,
+}) => {
   return (
     <div className="pagination-container">
-      {/* Previous */}
-      {currentPage > 1 && (
-        <button className="inactive" onClick={onPrevious}>
-          Anterior
-        </button>
-      )}
+      {/* Previous Button */}
+      <button
+        className={`pagination-btn ${currentPage === 1 ? "disabled" : ""}`}
+        onClick={onPrevious}
+        disabled={currentPage === 1}
+      >
+        <ArrowBackIcon />
+      </button>
 
-      {/* Actual page */}
-      <button className="active">{currentPage}</button>
+      {/* Page Numbers */}
+      <div className="pagination-numbers">
+        {/* First Page */}
+        {currentPage !== 1 && (
+          <button className="pagination-btn" onClick={() => onPageChange(1)}>
+            1
+          </button>
+        )}
 
-      {/* Next page */}
-      {currentPage < totalPages && (
-        <button className="inactive" onClick={onNext}>
-          {currentPage + 1}
-        </button>
-      )}
+        {/* Current Page */}
+        <button className="pagination-btn active">{currentPage}</button>
+      </div>
 
-      {/* Next */}
-      {currentPage < totalPages && (
-        <button className="inactive" onClick={onNext}>
-          Siguiente
-        </button>
-      )}
+      {/* Next Button */}
+      <button
+        className={`pagination-btn ${
+          currentPage === totalPages ? "disabled" : ""
+        }`}
+        onClick={onNext}
+        disabled={currentPage === totalPages}
+      >
+        <ArrowForwardIcon />
+      </button>
     </div>
   );
 };

@@ -1,17 +1,30 @@
-const dataType = {
-    hotels: 'https://nexo.carm.es/nexo/archivos/recursos/opendata/json/Hoteles.json',
-    restaurants: 'https://nexo.carm.es/nexo/archivos/recursos/opendata/json/Restaurantes.json'
-}
+// Murcia data API fetching
+const HOTELS_API_URL =
+  "https://nexo.carm.es/nexo/archivos/recursos/opendata/json/Hoteles.json";
 
-export const getData = async (type) =>{
-    console.log('Type: ', type)
-    /// Wrong type
-    if (!dataType[type]) throw new Error(`Type: ${type} not a valid type`);
+const RESTAURANTS_API_URL =
+  "https://nexo.carm.es/nexo/archivos/recursos/opendata/json/Restaurantes.json";
 
-    const res = await fetch(dataType[type]);
+export const getHotelsData = async () => {
+  console.log("Fetching hotels data from API...");
 
-    if (!res.ok){
-        throw new Error(`API ERROR: ${type} Res not OK.`)
-    }
-    return res.json();
-}
+  const res = await fetch(HOTELS_API_URL);
+  if (!res.ok) {
+    throw new Error(
+      `API ERROR: Hotels request failed with status ${res.status}`
+    );
+  }
+  return res.json();
+};
+
+export const getRestaurantsData = async () => {
+  console.log("Fetching restaurants data from API...");
+
+  const res = await fetch(RESTAURANTS_API_URL);
+  if (!res.ok) {
+    throw new Error(
+      `API ERROR: Restaurants request failed with status ${res.status}`
+    );
+  }
+  return res.json();
+};

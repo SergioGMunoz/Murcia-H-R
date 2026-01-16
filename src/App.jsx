@@ -1,20 +1,25 @@
 import "./App.css";
-import List from "./components/List/List.jsx";
+import { Routes, Route } from "react-router-dom";
 import { NavBar } from "./components/navbar/navbar.jsx";
-import Pagination from "./components/List/Pagination.jsx";
-import { fetchData } from "./hooks/useData.js";
 import HotelesListing from "./pages/HotelsListing.jsx";
+import HotelDetail from "./pages/HotelDetail.jsx";
+import { APIProvider } from "@vis.gl/react-google-maps";
 
 function App() {
-  fetchData("hotel");
   return (
-    <>
-      {console.log("HOTELS LENGTH")}
+    <APIProvider
+      apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
+      onLoad={() => console.log("Maps API has loaded.")}
+    >
       <NavBar />
       <main>
-        <HotelesListing />
+        {/* React router to navegate between pages */}
+        <Routes>
+          <Route path="/" element={<HotelesListing />} />
+          <Route path="/hotel/:id" element={<HotelDetail />} />
+        </Routes>
       </main>
-    </>
+    </APIProvider>
   );
 }
 
