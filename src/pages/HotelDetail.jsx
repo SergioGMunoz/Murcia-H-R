@@ -1,17 +1,33 @@
 import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import notImg from "../assets/img/not-img.png";
 import Button from "../components/ui/Button";
 import Error from "../components/ui/Error";
 import InfoItem from "../components/ui/InfoItem";
 import HotelLocation from "../components/Map/HotelLocation";
 import { parseHotelCoordinates } from "../utils/coordinatesUtils";
+import { filterRestaurantsByCP } from "../utils/restaurantUtils.js";
+import { fetchRestaurantsData } from "../hooks/useData.js";
 
 const HotelDetail = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const hotel = state?.hotel;
+  const [nearRestaurants, setNearRestaurants] = useState([]);
 
   console.log("HOTEL A MOSTRAR", hotel);
+
+  // Get the restaurant from the CP code
+  useEffect(() => {
+    if (hotel && hotel["C.P."]) {
+      fetchRestaurantsData().then((response) => {
+        if (response.data) {
+          const filtered = filterRestaurantsByCP(response.data, hotel["C.P."]);
+          setNearRestaurants(filtered);
+        }
+      });
+    }
+  }, [hotel]);
 
   // Render error 404 if hotel not found in state
   if (!hotel) {
@@ -110,8 +126,11 @@ const HotelDetail = () => {
                   {/* If have coordinates */}
                   {coords && (
                     <div className="hotel-location-container">
-                      <h3>Ubicación</h3>
-                      <HotelLocation coords={coords} />
+                      <h3>Restaurantes Cercanos</h3>
+                      <HotelLocation
+                        coords={coords}
+                        nearRestaurants={nearRestaurants}
+                      />
                     </div>
                   )}
                 </div>

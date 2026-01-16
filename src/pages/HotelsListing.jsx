@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Pagination from "../components/List/Pagination";
-import { fetchData } from "../hooks/useData";
+import { fetchHotelsData } from "../hooks/useData";
 import List from "../components/List/List";
 import Loader from "../components/ui/Loader";
 import Error from "../components/ui/Error";
@@ -19,7 +19,7 @@ const HotelesListing = () => {
 
   // Error fetching Hotels -> Render error page
   useEffect(() => {
-    fetchData().then((response) => {
+    fetchHotelsData().then((response) => {
       if (response.data) {
         setHotels(response.data);
       } else {

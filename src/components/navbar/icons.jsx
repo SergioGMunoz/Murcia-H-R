@@ -1,4 +1,4 @@
-import SearchIcon from "@mui/icons-material/Search";
+import HomeIcon from "@mui/icons-material/Home";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ export const Icons = () => {
       {/* Hotels LINK */}
       <Link to="/" className="nav-link">
         <div className="nav-item">
-          <SearchIcon className="mui-icon" />
+          <HomeIcon className="mui-icon" />
           <span className="nav-text">Hoteles</span>
         </div>
       </Link>

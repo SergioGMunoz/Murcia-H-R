@@ -7,6 +7,11 @@ export const parseHotelCoordinates = (latStr, lngStr) => {
   const north = parseFloat(latStr);
   const east = parseFloat(lngStr);
 
+  // Validar que los valores estén en el rango válido para UTM
+  if (isNaN(north) || isNaN(east)) return null;
+  if (east < 100000 || east > 999999) return null;
+  if (north < 0 || north > 10000000) return null;
+
   try {
     const result = utm.toLatLon(east, north, 30, "N");
     return {
