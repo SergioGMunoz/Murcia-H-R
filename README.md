@@ -1,8 +1,9 @@
 # 🏨 Murcia H&R - Hoteles y Restaurantes
 
-**Murcia H&R** es una aplicación web moderna desarrollada en React que permite explorar y descubrir hoteles y restaurantes de la Región de Murcia. La aplicación consume datos de la API oficial de turismo de Murcia para ofrecer información actualizada y completa sobre establecimientos hoteleros y gastronómicos.
+Aplicación web desarrollada en React que permite explorar hoteles de la Región de Murcia y descubrir restaurantes cercanos a estos.
 
-<div align="center">
+La aplicación consume datos oficiales de la API Turismo de Murcia, muestra información con mapas interactivos, filtrado y sistema de geolocalización mediante coordenadas UTM.
+
 
 ![Desktop](./img_readme/MurciaH&R.png)
 
