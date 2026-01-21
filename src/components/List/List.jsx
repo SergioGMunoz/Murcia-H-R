@@ -4,6 +4,10 @@ import ListItem from "./ListItem";
 // Iterates the item list an reder it 
 
 const List = ({ elements }) => {
+  if (elements.length === 0) {
+    return <p className="no-results">Ningún resultado a mostrar</p>;
+  }
+
   return (
     <section className="list">
       {elements.map((element) => {
