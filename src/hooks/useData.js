@@ -19,3 +19,4 @@ export const fetchRestaurantsData = async () => {
     return { data: null, error };
   }
 };
+  
