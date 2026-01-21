@@ -8,6 +8,7 @@ import HotelLocation from "../components/Map/HotelLocation";
 import { parseHotelCoordinates } from "../utils/coordinatesUtils";
 import { filterRestaurantsByCP } from "../utils/restaurantUtils.js";
 import { fetchRestaurantsData } from "../hooks/useData.js";
+import WeatherWidget from "../components/Weather/WeatherWidget";
 
 const HotelDetail = () => {
   const { state } = useLocation();
@@ -109,6 +110,8 @@ const HotelDetail = () => {
           </div>
         ))}
       </div>
+
+      {hotel.Municipio && <WeatherWidget municipio={hotel.Municipio} />}
 
       <div className="hotel-detail-info">
         <div className="info-section">
