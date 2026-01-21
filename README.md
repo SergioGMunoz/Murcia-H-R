@@ -4,7 +4,6 @@ Aplicación web desarrollada en React que permite explorar hoteles de la Región
 
 La aplicación consume datos oficiales de la API Turismo de Murcia, muestra información con mapas interactivos, filtrado y sistema de geolocalización mediante coordenadas UTM.
 
-
 ![Desktop](./img_readme/MurciaH&R.png)
 
 *Descubre los mejores hoteles y restaurantes de la Región de Murcia*
@@ -14,8 +13,8 @@ La aplicación consume datos oficiales de la API Turismo de Murcia, muestra info
 [![Material-UI](https://img.shields.io/badge/Material--UI-7-0081CB?style=for-the-badge&logo=mui&logoColor=white)](https://mui.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/)
-
-</div>
+[![Figma](https://img.shields.io/badge/Figma-Design-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://figma.com/)
+[![Git](https://img.shields.io/badge/Git-Control%20Versiones-F05032?style=for-the-badge&logo=git&logoColor=white)](https://git-scm.com/)
 
 ---
 
@@ -27,13 +26,18 @@ La aplicación consume datos oficiales de la API Turismo de Murcia, muestra info
 - Detalle de Hotel
 - Previsión Meteorológica
 - Geolocalización
+- Integración de Restaurantes
+- Mapas Interactivos
+- Conversión de Coordenadas UTM
+- React Router
 - Paginación
 - Carousel Promocional
 - Validación de Imágenes
 - Diseño Responsive
 
 ### 🎯 **Futuras Mejoras**
-- Listado de Restaurantes
+- Sistema de Filtros Avanzados
+- Detalle de Restaurantes
 - Sistema de Favoritos
 - Valoraciones y Comentarios
 - Sistema de Reservas
@@ -52,8 +56,9 @@ La aplicación consume datos oficiales de la API Turismo de Murcia, muestra info
 - Google Maps API
 
 ### **APIs Externas**
-- API Turismo Murcia 
-- Open-Meteo API 
+- API Turismo Murcia (Hoteles)
+- API Turismo Murcia (Restaurantes)
+- Open-Meteo API
 
 ### **Control de Versiones y Diseño**
 - Git & GitHub

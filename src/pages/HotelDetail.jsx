@@ -6,9 +6,9 @@ import Error from "../components/ui/Error";
 import InfoItem from "../components/ui/InfoItem";
 import HotelLocation from "../components/Map/HotelLocation";
 import { parseHotelCoordinates } from "../utils/coordinatesUtils";
-import WeatherWidget from "../components/Weather/WeatherWidget";
 import { filterRestaurantsByCP } from "../utils/restaurantUtils.js";
 import { fetchRestaurantsData } from "../hooks/useData.js";
+import WeatherWidget from "../components/Weather/WeatherWidget";
 
 const HotelDetail = () => {
   const { state } = useLocation();
