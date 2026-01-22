@@ -8,12 +8,27 @@ const Pagination = ({
   onNext,
   onPageChange,
 }) => {
+  const handlePageClick = (pageNumber) => {
+    onPageChange(pageNumber);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handlePrevious = () => {
+    onPrevious();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNext = () => {
+    onNext();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="pagination-container">
       {/* Previous Button */}
       <button
         className={`pagination-btn ${currentPage === 1 ? "disabled" : ""}`}
-        onClick={onPrevious}
+        onClick={handlePrevious}
         disabled={currentPage === 1}
       >
         <ArrowBackIcon />
@@ -23,7 +38,7 @@ const Pagination = ({
       <div className="pagination-numbers">
         {/* First Page */}
         {currentPage !== 1 && (
-          <button className="pagination-btn" onClick={() => onPageChange(1)}>
+          <button className="pagination-btn" onClick={() => handlePageClick(1)}>
             1
           </button>
         )}
@@ -37,7 +52,7 @@ const Pagination = ({
         className={`pagination-btn ${
           currentPage === totalPages ? "disabled" : ""
         }`}
-        onClick={onNext}
+        onClick={handleNext}
         disabled={currentPage === totalPages}
       >
         <ArrowForwardIcon />

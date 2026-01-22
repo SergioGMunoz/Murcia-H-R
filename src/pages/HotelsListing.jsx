@@ -83,18 +83,17 @@ const HotelesListing = () => {
   // Pagination
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleOnPrevious = () => {
     if (currentPage > 1) {
-      handlePageChange(currentPage - 1);
+      setCurrentPage(currentPage - 1);
     }
   };
 
   const handleOnNext = () => {
     if (currentPage < totalPages) {
-      handlePageChange(currentPage + 1);
+      setCurrentPage(currentPage + 1);
     }
   };
 
